@@ -70,7 +70,7 @@ export default function Footer() {
               cmx@gmail.com
             </a>
           </p>
-          <div style={styles.socials}>
+          <div style={styles.socials} className="social-icons">
             <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" style={{ color: "#fff" }}>
               <i className="fab fa-twitter" />
             </a>
@@ -140,6 +140,25 @@ export default function Footer() {
       {/* Responsive CSS */}
       <style>
         {`
+          /* Desktop - Social icons left aligned (default) */
+          .social-icons {
+            justify-content: flex-start;
+          }
+
+          /* Tablet (768px – 1024px) - Social icons centered */
+          @media (max-width: 1024px) {
+            .social-icons {
+              justify-content: center !important;
+            }
+          }
+
+          /* Mobile (≤768px) - Social icons centered */
+          @media (max-width: 768px) {
+            .social-icons {
+              justify-content: center !important;
+            }
+          }
+
           @media (max-width: 900px) {
             .footer-container {
               grid-template-columns: repeat(2, 1fr);
@@ -214,7 +233,7 @@ const styles = {
     display: "flex",
     gap: "10px",
     fontSize: "18px",
-    justifyContent: "flex-start",
+    justifyContent: "flex-start", // Desktop: left aligned
   },
   newsletter: {
     display: "flex",

@@ -100,7 +100,7 @@ export default function SearchBar() {
         </select>
 
         <button className="btn dark" onClick={handleSearch}>
-          Search <i class="fa-brands fa-searchengin"></i>
+          Search <i className="fa-brands fa-searchengin"></i>
         </button>
       </div>
 
@@ -119,8 +119,7 @@ export default function SearchBar() {
           justify-content: center;
           gap: 10px;
           padding: 20px;
-          background: #07da97ff;
-          
+          background: #07da97ff; /* Green for desktop */
           width: 100%;
           box-sizing: border-box;
         }
@@ -134,6 +133,7 @@ export default function SearchBar() {
           box-shadow: 0 0 6px rgba(14,138,98,0.2);
           outline: none;
           transition: 0.3s;
+          background: white;
         }
 
         .search-band input:focus,
@@ -157,7 +157,54 @@ export default function SearchBar() {
           background: #0a5e44;
           box-shadow: 0 0 10px rgba(14,138,98,0.4);
         }
-      `}
+
+        /* 🔹 Tablet (768px – 1024px) - White Background */
+        @media (max-width: 1024px) {
+          .search-band {
+            background: white; /* White background for tablet */
+            border-bottom: 1px solid #e0e0e0;
+          }
+        }
+
+        /* 🔹 Mobile (≤768px) - White Background */
+        @media (max-width: 768px) {
+          .search-band {
+            background: white; /* White background for mobile */
+            border-bottom: 1px solid #e0e0e0;
+            padding: 15px;
+          }
+
+          .search-band input,
+          .search-band select {
+            min-width: 140px;
+            padding: 12px;
+          }
+
+          .btn.dark {
+            padding: 12px 20px;
+          }
+        }
+
+        /* 🔹 Small Mobile (≤480px) */
+        @media (max-width: 480px) {
+          .search-band {
+            padding: 12px;
+            gap: 8px;
+          }
+
+          .search-band input,
+          .search-band select {
+            min-width: 120px;
+            padding: 10px;
+            font-size: 14px;
+          }
+
+          .btn.dark {
+            padding: 10px 16px;
+            font-size: 14px;
+          }
+        }
+        `}
       </style>
     </div>
   );
