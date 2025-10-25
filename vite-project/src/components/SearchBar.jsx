@@ -1,61 +1,39 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "../index.css"; // your existing CSS file
+import "../index.css";
 
 export default function SearchBar() {
   const [categories, setCategories] = useState([]);
-  const [CityArea, setCityArea] = useState([]);
+  const [cityArea, setCityArea] = useState([]);
   const [keyword, setKeyword] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedArea, setSelectedArea] = useState("");
 
-  const navigate = useNavigate(); // ✅ for redirecting to results page
+  const navigate = useNavigate();
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3300";
 
-  // ✅ Navigate to search results page
+  useEffect(() => {
+    fetch(`${API_URL}/createCategory/Get`, { credentials: "include" })
+      .then(res => res.json())
+      .then(data => setCategories(data))
+      .catch(() => setCategories([]));
+
+    fetch(`${API_URL}/createArea/Get`, { credentials: "include" })
+      .then(res => res.json())
+      .then(data => setCityArea(data))
+      .catch(() => setCityArea([]));
+  }, []);
+
   const handleSearch = () => {
     const params = new URLSearchParams();
     if (keyword) params.append("name", keyword);
     if (selectedCategory) params.append("category", selectedCategory);
     if (selectedArea) params.append("area", selectedArea);
-
-    navigate(`/SearchResults?${params.toString()}`); // ✅ Redirect with params
+    navigate(`/SearchResults?${params.toString()}`);
   };
-
-  // ✅ Fetch category & area data
-  const getcategory = async () => {
-  try {
-    const res = await fetch("https://pakclassified.onrender.com/createCategory/Get", {
-      credentials: "include"
-    });
-    const data = await res.json();  // 👈 pehle data parse karo
-    console.log(data);              // 👈 ab console me dekho
-    setCategories(data);
-  } catch (error) {
-    console.error("Error fetching categories:", error.message);
-  }
-};
-
-
-  const getCityArea = async () => {
-    try {
-      const res = await fetch("https://pakclassified.onrender.com/createArea/Get", {
-      credentials: "include"
-    });
-      const data = await res.json();
-      setCityArea(data);
-    } catch (error) {
-      console.error("Error fetching City Areas:", error.message);
-    }
-  };
-
-  useEffect(() => {
-    getcategory();
-    getCityArea();
-  }, []);
 
   return (
     <div className="search-page">
-      {/* 🔍 Search Bar */}
       <div className="search-band">
         <input
           placeholder="Keyword"
@@ -68,17 +46,11 @@ export default function SearchBar() {
           onChange={(e) => setSelectedCategory(e.target.value)}
         >
           <option value="">Select Category</option>
-          {categories.length > 0 ? (
-            categories.map((category) => (
-              <option value={category._id} key={category._id}>
-                {category.Name}
-              </option>
-            ))
-          ) : (
-            <option value="" disabled>
-              No category exist
-            </option>
-          )}
+          {categories.length
+            ? categories.map(cat => (
+                <option key={cat._id} value={cat._id}>{cat.Name}</option>
+              ))
+            : <option value="" disabled>No categories</option>}
         </select>
 
         <select
@@ -86,44 +58,33 @@ export default function SearchBar() {
           onChange={(e) => setSelectedArea(e.target.value)}
         >
           <option value="">Select City/Area</option>
-          {CityArea.length > 0 ? (
-            CityArea.map((area) => (
-              <option value={area._id} key={area._id}>
-                {area.Name}
-              </option>
-            ))
-          ) : (
-            <option value="" disabled>
-              No Area here
-            </option>
-          )}
+          {cityArea.length
+            ? cityArea.map(area => (
+                <option key={area._id} value={area._id}>{area.Name}</option>
+              ))
+            : <option value="" disabled>No areas</option>}
         </select>
 
-        <button className="btn dark" onClick={handleSearch}>
-          Search <i className="fa-brands fa-searchengin"></i>
-        </button>
+        <button className="btn dark" onClick={handleSearch}>Search</button>
       </div>
 
-      {/* ✅ Inline CSS */}
-      <style>
-        {`
+      {/* Inline CSS must be inside JSX */}
+      <style>{`
         .search-page {
           width: 100%;
           margin: 0;
           padding: 0 0 40px 0;
         }
-
         .search-band {
           display: flex;
           flex-wrap: wrap;
           justify-content: center;
           gap: 10px;
           padding: 20px;
-          background: #07da97ff; /* Green for desktop */
+          background: #07da97ff;
           width: 100%;
           box-sizing: border-box;
         }
-
         .search-band input,
         .search-band select {
           padding: 10px;
@@ -135,13 +96,11 @@ export default function SearchBar() {
           transition: 0.3s;
           background: white;
         }
-
         .search-band input:focus,
         .search-band select:focus {
           border-color: #0a5e44;
           box-shadow: 0 0 10px rgba(14,138,98,0.4);
         }
-
         .btn.dark {
           background: #0e8a62;
           color: white;
@@ -152,60 +111,24 @@ export default function SearchBar() {
           transition: 0.3s;
           box-shadow: 0 0 6px rgba(14,138,98,0.2);
         }
-
         .btn.dark:hover {
           background: #0a5e44;
           box-shadow: 0 0 10px rgba(14,138,98,0.4);
         }
-
-        /* 🔹 Tablet (768px – 1024px) - White Background */
         @media (max-width: 1024px) {
-          .search-band {
-            background: white; /* White background for tablet */
-            border-bottom: 1px solid #e0e0e0;
-          }
+          .search-band { background: white; border-bottom: 1px solid #e0e0e0; }
         }
-
-        /* 🔹 Mobile (≤768px) - White Background */
         @media (max-width: 768px) {
-          .search-band {
-            background: white; /* White background for mobile */
-            border-bottom: 1px solid #e0e0e0;
-            padding: 15px;
-          }
-
-          .search-band input,
-          .search-band select {
-            min-width: 140px;
-            padding: 12px;
-          }
-
-          .btn.dark {
-            padding: 12px 20px;
-          }
+          .search-band { background: white; border-bottom: 1px solid #e0e0e0; padding: 15px; }
+          .search-band input, .search-band select { min-width: 140px; padding: 12px; }
+          .btn.dark { padding: 12px 20px; }
         }
-
-        /* 🔹 Small Mobile (≤480px) */
         @media (max-width: 480px) {
-          .search-band {
-            padding: 12px;
-            gap: 8px;
-          }
-
-          .search-band input,
-          .search-band select {
-            min-width: 120px;
-            padding: 10px;
-            font-size: 14px;
-          }
-
-          .btn.dark {
-            padding: 10px 16px;
-            font-size: 14px;
-          }
+          .search-band { padding: 12px; gap: 8px; }
+          .search-band input, .search-band select { min-width: 120px; padding: 10px; font-size: 14px; }
+          .btn.dark { padding: 10px 16px; font-size: 14px; }
         }
-        `}
-      </style>
+      `}</style>
     </div>
   );
 }
