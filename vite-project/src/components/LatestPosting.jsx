@@ -5,7 +5,7 @@ export default function LatestPosting() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch("https://pakclassified.onrender.com/createAdvertisement")// backend route
+    fetch("https://pak-backend.vercel.app/createAdvertisement")// backend route
       .then((res) => res.json())
       .then((data) => setPosts(data))
       .catch((err) => console.error(err));
@@ -15,7 +15,7 @@ export default function LatestPosting() {
     <div className="grid latest-posts">
       {posts.map((p) => (
         <article key={p._id} className="latest-card">
-          <img src={`https://pakclassified.onrender.com/uploads/${p.Image}`} alt={p.Name} />
+          <img src={`https://pak-backend.vercel.app/uploads/${p.Image}`} alt={p.Name} />
           <div className="latest-body">
             <h3>{p.Name}</h3>
             <p>{p.Description.length > 100 ? p.Description.substring(0, 100) + "..." : p.Description}</p>

@@ -32,7 +32,7 @@ function Signup({ show, handleClose ,onSuccess}) {
     formdata.append("image", data.image[0]);
 
     try {
-      const res = await fetch(`https://pakclassified.onrender.com/createuser/signup`, {
+      const res = await fetch(`https://pak-backend.vercel.app/createuser/signup`, {
         method: "POST",
         body: formdata,
       });

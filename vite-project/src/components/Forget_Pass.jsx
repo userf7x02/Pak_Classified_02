@@ -10,7 +10,7 @@ export default function ForgotPassword({ show, handleClose }) {
 
     const sendOtp = async () => {
         try {
-            const res = await fetch("https://pakclassified.onrender.com/createAuth/forgot", {
+            const res = await fetch("https://pak-backend.vercel.app/createAuth/forgot", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
             
@@ -31,7 +31,7 @@ export default function ForgotPassword({ show, handleClose }) {
 
     const resetPassword = async () => {
         try {
-            const res = await fetch("https://pakclassified.onrender.com/createAuth/reset", {
+            const res = await fetch("https://pak-backend.vercel.app/createAuth/reset", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email, otp, newPassword: newPass }),

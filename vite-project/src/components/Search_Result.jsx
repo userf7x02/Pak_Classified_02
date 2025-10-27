@@ -8,7 +8,7 @@ export default function SearchResults() {
   useEffect(() => {
     const fetchResults = async () => {
       const res = await fetch(
-        `https://pakclassified.onrender.com/createAdvertisement/search${location.search}`);
+        `https://pak-backend.vercel.app/createAdvertisement/search${location.search}`);
       const data = await res.json();
       setResults(data);
     };
@@ -221,7 +221,7 @@ export default function SearchResults() {
             <article key={car._id} className="card">
               <div style={{ display: "flex", flexDirection: "row" }}>
                 <img
-                  src={`https://pakclassified.onrender.com/uploads/${car.Image}`}
+                  src={`https://pak-backend.vercel.app/uploads/${car.Image}`}
                   alt={car.Name}
                 />
 

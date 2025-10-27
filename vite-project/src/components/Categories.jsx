@@ -10,8 +10,8 @@ export default function Categories() {
     // ✅ async function ke andar pura logic
     async function fetchData() {
       try {
-        // Step 1: Get all categories
-        const res = await fetch("https://pakclassified.onrender.com/createCategory/Get")
+        // Step 1: Get all categorieshttps://pak-backend.vercel.app
+        const res = await fetch("/createCategory/Get")
         const data = await res.json();
         setCategories(data);
 
@@ -21,7 +21,7 @@ export default function Categories() {
           const c = data[i];
           try {
             const res2 = await fetch(
-              `https://pakclassified.onrender.com/createAdvertisement/category/${c._id}`
+              `https://pak-backend.vercel.app/createAdvertisement/category/${c._id}`
                
             );
             const cars = await res2.json();
