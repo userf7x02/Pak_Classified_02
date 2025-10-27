@@ -13,7 +13,7 @@ export default function ForgotPassword({ show, handleClose }) {
             const res = await fetch("https://pakclassified.onrender.com/createAuth/forgot", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                credentials: "include",
+            
                 body: JSON.stringify({ email }),
                 
             });
@@ -34,7 +34,6 @@ export default function ForgotPassword({ show, handleClose }) {
             const res = await fetch("https://pakclassified.onrender.com/createAuth/reset", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                credentials: "include",
                 body: JSON.stringify({ email, otp, newPassword: newPass }),
             });
             const data = await res.json();

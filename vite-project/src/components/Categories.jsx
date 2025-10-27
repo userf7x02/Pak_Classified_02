@@ -11,9 +11,7 @@ export default function Categories() {
     async function fetchData() {
       try {
         // Step 1: Get all categories
-        const res = await fetch("https://pakclassified.onrender.com/createCategory/Get", {
-      credentials: "include" // ✅ cookies/session ke liye
-    })
+        const res = await fetch("https://pakclassified.onrender.com/createCategory/Get")
         const data = await res.json();
         setCategories(data);
 
@@ -23,8 +21,8 @@ export default function Categories() {
           const c = data[i];
           try {
             const res2 = await fetch(
-              `https://pakclassified.onrender.com/createAdvertisement/category/${c._id}`,
-               { credentials: "include" }
+              `https://pakclassified.onrender.com/createAdvertisement/category/${c._id}`
+               
             );
             const cars = await res2.json();
             counts[c._id] = cars.length;

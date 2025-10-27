@@ -10,7 +10,7 @@ export default function SearchResults() {
       const res = await fetch(
         `https://pakclassified.onrender.com/createAdvertisement/search${location.search}`
       , {
-      credentials: "include"
+    
     });
       const data = await res.json();
       setResults(data);

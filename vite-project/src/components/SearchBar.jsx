@@ -13,12 +13,12 @@ export default function SearchBar() {
   const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3300";
 
   useEffect(() => {
-    fetch(`${API_URL}/createCategory/Get`, { credentials: "include" })
+    fetch(`${API_URL}/createCategory/Get`)
       .then(res => res.json())
       .then(data => setCategories(data))
       .catch(() => setCategories([]));
 
-    fetch(`${API_URL}/createArea/Get`, { credentials: "include" })
+    fetch(`${API_URL}/createArea/Get`)
       .then(res => res.json())
       .then(data => setCityArea(data))
       .catch(() => setCityArea([]));

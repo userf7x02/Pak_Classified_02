@@ -21,7 +21,7 @@ export default function CarDetails() {
   const getCityArea = async () => {
     try {
       const res = await fetch("https://pakclassified.onrender.com/createArea/Get", {
-      credentials: "include" // ✅ cookies/session ke liye
+    
     })
       const data = await res.json();
       console.log("CityArea list:", data); // 👈 add this
@@ -33,7 +33,7 @@ export default function CarDetails() {
 
   useEffect(() => {
     fetch(`https://pakclassified.onrender.com/createAdvertisement/${id}`, {
-      credentials: "include" // ✅ cookies/session ke liye
+    
     })
       .then((res) => res.json())
       .then((data) => {

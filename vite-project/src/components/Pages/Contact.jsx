@@ -16,8 +16,6 @@ export default function Contact() {
     try {
       const res = await fetch("https://pakclassified.onrender.com/createContact/sendContact", {
         method: "POST",
-      
-      credentials: "include",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });

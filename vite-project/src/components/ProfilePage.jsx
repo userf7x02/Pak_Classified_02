@@ -29,7 +29,7 @@ export default function ProfilePage({ isAuthenticated, setIsAuthenticated }) {
   const handleDeleteAd = async (adId) => {
     if (!window.confirm("Are you sure you want to delete this ad?")) return;
     try {
-      await fetch(`https://pakclassified.onrender.com/createAdvertisement/delete/${adId}`, { method: "DELETE", credentials: "include" });
+      await fetch(`https://pakclassified.onrender.com/createAdvertisement/delete/${adId}`, { method: "DELETE" });
       setAds((prev) => prev.filter((ad) => ad._id !== adId));
       alert("Ad Deleted Successfully!");
     } catch (err) {
@@ -83,7 +83,7 @@ export default function ProfilePage({ isAuthenticated, setIsAuthenticated }) {
         {
           method: "PUT",
           body: formData,
-           credentials: "include"
+    
         }
       );
 
@@ -158,7 +158,7 @@ export default function ProfilePage({ isAuthenticated, setIsAuthenticated }) {
       const res = await fetch(`https://pakclassified.onrender.com/createuser/update/${user._id}`, {
         method: "PUT",
         body: formData,
-         credentials: "include"
+        
       });
 
 
@@ -183,14 +183,14 @@ export default function ProfilePage({ isAuthenticated, setIsAuthenticated }) {
 
   useEffect(() => {
     fetch("https://pakclassified.onrender.com/createCategory/Get", {
-      credentials: "include" // ✅ cookies/session ke liye
+  
     })
       .then(res => res.json())
       .then(data => setCategories(data))
       .catch(err => console.error(err));
 
     fetch("https://pakclassified.onrender.com/createArea/Get", {
-      credentials: "include" // ✅ cookies/session ke liye
+    
     })
       .then(res => res.json())
       .then(data => setCityArea(data))
@@ -219,7 +219,7 @@ export default function ProfilePage({ isAuthenticated, setIsAuthenticated }) {
   useEffect(() => {
   if (user?._id) {
     fetch(`https://pakclassified.onrender.com/createAdvertisement/user/${user._id}`, {
-      credentials: "include"
+    
     })
       .then(res => res.json()) // 👈 ye missing tha
       .then(data => {

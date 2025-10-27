@@ -20,7 +20,7 @@ const Post = ({ show, handleClose }) => {
     const getcategory = async () => {
         try {
             const res = await fetch("https://pakclassified.onrender.com/createCategory/Get", {
-                credentials: "include" // ✅ cookies/session ke liye
+        
             })
             if (!res.ok) {
                 // toast.error("Failed to fetch categories");
@@ -36,7 +36,7 @@ const Post = ({ show, handleClose }) => {
     const getCityArea = async () => {
         try {
             const res = await fetch("https://pakclassified.onrender.com/createArea/Get", {
-                credentials: "include" // ✅ cookies/session ke liye
+            
             })
             if (!res.ok) {
                 // toast.error("Failed to fetch categories");
@@ -78,7 +78,7 @@ const Post = ({ show, handleClose }) => {
             const res = await fetch(url, {
                 method,
                 body: formDataToSend,
-                 credentials: "include"
+                
             });
 
             const data = await res.json();

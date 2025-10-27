@@ -34,7 +34,6 @@ function Signup({ show, handleClose ,onSuccess}) {
     try {
       const res = await fetch(`https://pakclassified.onrender.com/createuser/signup`, {
         method: "POST",
-        credentials: "include",
         body: formdata,
       });
 

@@ -29,7 +29,6 @@ function Login({ show, handleClose, onSuccess }) {
     try {
       const res = await fetch(`https://pakclassified.onrender.com/createlogin/login`, {
         method: "POST",
-         credentials: "include",
         
         headers: {
           "Content-Type": "application/json"

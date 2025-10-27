@@ -9,9 +9,8 @@ export default function CatDesign() {
 
   async function Getdata() {
     try {
-      let res = await fetch(`https://pakclassified.onrender.com/createAdvertisement/category/${id}`, {
-      credentials: "include" // ✅ cookies/session ke liye
-    })
+      let res = await fetch(`https://pakclassified.onrender.com/createAdvertisement/category/${id}`
+    )
       let data = await res.json();
       setCard(data);
     } catch (err) {
@@ -21,9 +20,7 @@ export default function CatDesign() {
 
   async function GetCategory() {
     try {
-      let res = await fetch(`https://pakclassified.onrender.com/createCategory/${id}`, {
-      credentials: "include" // ✅ cookies/session ke liye
-    })
+      let res = await fetch(`https://pakclassified.onrender.com/createCategory/${id}`)
       let data = await res.json();
       setCategory(data);
     } catch (err) {

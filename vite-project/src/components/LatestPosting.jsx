@@ -6,7 +6,6 @@ export default function LatestPosting() {
 
   useEffect(() => {
     fetch("https://pakclassified.onrender.com/createAdvertisement", {
-      credentials: "include" // ✅ cookies/session ke liye
     })// backend route
       .then((res) => res.json())
       .then((data) => setPosts(data))

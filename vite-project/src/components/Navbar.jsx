@@ -19,7 +19,7 @@ export default function Navbar({ isAuthenticated, setIsAuthenticated }) {
   const getcategory = async () => {
     try {
       const res = await fetch("https://pakclassified.onrender.com/createCategory/Get", {
-        credentials: "include"
+      
       });
       const data = await res.json();
       setCategories(data);
