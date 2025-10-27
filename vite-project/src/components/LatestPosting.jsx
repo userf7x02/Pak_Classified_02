@@ -5,8 +5,7 @@ export default function LatestPosting() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch("https://pakclassified.onrender.com/createAdvertisement", {
-    })// backend route
+    fetch("https://pakclassified.onrender.com/createAdvertisement")// backend route
       .then((res) => res.json())
       .then((data) => setPosts(data))
       .catch((err) => console.error(err));

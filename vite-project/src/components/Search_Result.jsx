@@ -8,10 +8,7 @@ export default function SearchResults() {
   useEffect(() => {
     const fetchResults = async () => {
       const res = await fetch(
-        `https://pakclassified.onrender.com/createAdvertisement/search${location.search}`
-      , {
-    
-    });
+        `https://pakclassified.onrender.com/createAdvertisement/search${location.search}`);
       const data = await res.json();
       setResults(data);
     };

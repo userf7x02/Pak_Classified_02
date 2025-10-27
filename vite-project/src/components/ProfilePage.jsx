@@ -218,9 +218,7 @@ export default function ProfilePage({ isAuthenticated, setIsAuthenticated }) {
   }, []);
   useEffect(() => {
   if (user?._id) {
-    fetch(`https://pakclassified.onrender.com/createAdvertisement/user/${user._id}`, {
-    
-    })
+    fetch(`https://pakclassified.onrender.com/createAdvertisement/user/${user._id}`)
       .then(res => res.json()) // 👈 ye missing tha
       .then(data => {
         console.log("✅ User ads fetched:", data);

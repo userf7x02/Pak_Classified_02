@@ -18,9 +18,7 @@ export default function Navbar({ isAuthenticated, setIsAuthenticated }) {
 
   const getcategory = async () => {
     try {
-      const res = await fetch("https://pakclassified.onrender.com/createCategory/Get", {
-      
-      });
+      const res = await fetch("https://pakclassified.onrender.com/createCategory/Get");
       const data = await res.json();
       setCategories(data);
     } catch (error) {

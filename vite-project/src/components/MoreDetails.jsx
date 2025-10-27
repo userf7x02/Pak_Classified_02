@@ -20,9 +20,7 @@ export default function CarDetails() {
 
   const getCityArea = async () => {
     try {
-      const res = await fetch("https://pakclassified.onrender.com/createArea/Get", {
-    
-    })
+      const res = await fetch("https://pakclassified.onrender.com/createArea/Get")
       const data = await res.json();
       console.log("CityArea list:", data); // 👈 add this
       setCityArea(data);
