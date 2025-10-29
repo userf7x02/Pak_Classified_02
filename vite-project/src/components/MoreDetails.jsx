@@ -10,7 +10,7 @@ export default function CarDetails() {
 
   // const getcategory = async () => {
   //   try {
-  //     const res = await fetch("https://pak-backend.vercel.app/createCategory/Get");
+  //     const res = await fetch("https://pak-backend-54jpb4etr-hamza-maliks-projects-598e98c2.vercel.app/createCategory/Get");
   //     const data = await res.json();
   //     setCategory(data);
   //   } catch (error) {
@@ -20,7 +20,7 @@ export default function CarDetails() {
 
   const getCityArea = async () => {
     try {
-      const res = await fetch("https://pak-backend.vercel.app/createArea/Get")
+      const res = await fetch("https://pak-backend-54jpb4etr-hamza-maliks-projects-598e98c2.vercel.app/createArea/Get")
       const data = await res.json();
       console.log("CityArea list:", data); // 👈 add this
       setCityArea(data);
@@ -30,7 +30,7 @@ export default function CarDetails() {
   };
 
   useEffect(() => {
-    fetch(`https://pak-backend.vercel.app/createAdvertisement/${id}`, {
+    fetch(`https://pak-backend-54jpb4etr-hamza-maliks-projects-598e98c2.vercel.app/createAdvertisement/${id}`, {
     
     })
       .then((res) => res.json())
@@ -45,7 +45,7 @@ export default function CarDetails() {
 
 
 
-  if (!ad) return <h2>Loading...</h2>;
+  if (!ad) return <h2 className="text-center">Loading...</h2>;
 
   return (
     <>
@@ -78,7 +78,7 @@ export default function CarDetails() {
           <div
             style={{
               ...styles.thumb,
-              backgroundImage: `url(https://pak-backend.vercel.app/uploads/${ad.Image || "placeholder.jpg"})`,
+              backgroundImage: `url(https://pak-backend-54jpb4etr-hamza-maliks-projects-598e98c2.vercel.app/uploads/${ad.Image || "placeholder.jpg"})`,
             }}
           ></div>
           <div style={styles.titleBlock}>

@@ -10,7 +10,7 @@ export default function ForgotPassword({ show, handleClose }) {
 
     const sendOtp = async () => {
         try {
-            const res = await fetch("https://pak-backend.vercel.app/createAuth/forgot", {
+            const res = await fetch("https://pak-backend-54jpb4etr-hamza-maliks-projects-598e98c2.vercel.app/createAuth/forgot", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
             
@@ -31,7 +31,7 @@ export default function ForgotPassword({ show, handleClose }) {
 
     const resetPassword = async () => {
         try {
-            const res = await fetch("https://pak-backend.vercel.app/createAuth/reset", {
+            const res = await fetch("https://pak-backend-54jpb4etr-hamza-maliks-projects-598e98c2.vercel.app/createAuth/reset", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email, otp, newPassword: newPass }),

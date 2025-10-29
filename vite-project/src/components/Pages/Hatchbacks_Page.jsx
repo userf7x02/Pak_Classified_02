@@ -6,7 +6,7 @@
 //   async function Getdata() {
 //     try {
 //       let res = await fetch(
-//         "https://pak-backend.vercel.app/api/v1/createAdvertisement/category/68da6923f1870df2f03dee7a"
+//         "https://pak-backend-54jpb4etr-hamza-maliks-projects-598e98c2.vercel.app/api/v1/createAdvertisement/category/68da6923f1870df2f03dee7a"
 //       );
 //       let data = await res.json();
 //       setCard(data);
@@ -32,7 +32,7 @@
 //       >
 //         <h2>{item.Name}</h2>
 //         <img
-//           src={`https://pak-backend.vercel.app/uploads/${item.Image}`}
+//           src={`https://pak-backend-54jpb4etr-hamza-maliks-projects-598e98c2.vercel.app/uploads/${item.Image}`}
 //           alt={item.Name}
 //           width="200"
 //         />

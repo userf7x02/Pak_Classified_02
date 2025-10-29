@@ -14,7 +14,7 @@ export default function Contact() {
     };
 
     try {
-      const res = await fetch("https://pak-backend.vercel.app/createContact/sendContact", {
+      const res = await fetch("https://pak-backend-54jpb4etr-hamza-maliks-projects-598e98c2.vercel.app/createContact/sendContact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
