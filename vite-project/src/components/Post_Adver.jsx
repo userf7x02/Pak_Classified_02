@@ -19,7 +19,7 @@ const Post = ({ show, handleClose }) => {
 
     const getcategory = async () => {
         try {
-            const res = await fetch("https://pak-backend-lxhqundby-hamza-maliks-projects-598e98c2.vercel.app/createCategory/Get")
+            const res = await fetch("https://pak-backend-bku89l3fn-hamza-maliks-projects-598e98c2.vercel.app/createCategory/Get")
             if (!res.ok) {
                 // toast.error("Failed to fetch categories");
             }
@@ -33,7 +33,7 @@ const Post = ({ show, handleClose }) => {
     }
     const getCityArea = async () => {
         try {
-            const res = await fetch("https://pak-backend-lxhqundby-hamza-maliks-projects-598e98c2.vercel.app/createArea/Get")
+            const res = await fetch("https://pak-backend-bku89l3fn-hamza-maliks-projects-598e98c2.vercel.app/createArea/Get")
             if (!res.ok) {
                 // toast.error("Failed to fetch categories");
             }
@@ -48,7 +48,7 @@ const Post = ({ show, handleClose }) => {
 
     const onSubmit = async (formData) => {
         try {
-            let url = "https://pak-backend-lxhqundby-hamza-maliks-projects-598e98c2.vercel.app/createAdvertisement";
+            let url = "https://pak-backend-bku89l3fn-hamza-maliks-projects-598e98c2.vercel.app/createAdvertisement";
             let method = "POST";
             const formDataToSend = new FormData();
 
