@@ -8,7 +8,7 @@ export default function LatestPosting() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("${VITE_API_URL}/createAdvertisement/getAll")
+    fetch(`${VITE_API_URL}/createAdvertisement/getAll`)
       .then((res) => {
         if (!res.ok) {
           throw new Error(`API Error: ${res.status}`);

@@ -4,6 +4,8 @@ import Signup from "./Signup";
 import Post from "./Post_Adver";
 import { useState, useEffect, useRef } from "react";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
+const VITE_API_URL = import.meta.env.VITE_API_URL;
+
 
 export default function Navbar({ isAuthenticated, setIsAuthenticated }) {
   const [showLogin, setShowLogin] = useState(false);
@@ -18,7 +20,7 @@ export default function Navbar({ isAuthenticated, setIsAuthenticated }) {
 
   const getcategory = async () => {
     try {
-      const res = await fetch("${VITE_API_URL}/createCategory/Get");
+      const res = await fetch(`${VITE_API_URL}/createCategory/Get`);
       const data = await res.json();
       setCategories(data);
     } catch (error) {

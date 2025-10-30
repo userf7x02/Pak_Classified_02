@@ -13,7 +13,7 @@ export default function Categories() {
       try {
         // Step 1: Get all categories${VITE_API_URL}
 
-        const res = await fetch("${VITE_API_URL}/createCategory/Get")
+        const res = await fetch(`${VITE_API_URL}/createCategory/Get`)
         const data = await res.json();
         setCategories(data);
 

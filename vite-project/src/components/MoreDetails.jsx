@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+const VITE_API_URL = import.meta.env.VITE_API_URL;
+
 
 
 export default function CarDetails() {
@@ -20,7 +22,7 @@ export default function CarDetails() {
 
   const getCityArea = async () => {
     try {
-      const res = await fetch("${VITE_API_URL}/createArea/Get")
+      const res = await fetch(`${VITE_API_URL}/createArea/Get`)
       const data = await res.json();
       console.log("CityArea list:", data); // 👈 add this
       setCityArea(data);

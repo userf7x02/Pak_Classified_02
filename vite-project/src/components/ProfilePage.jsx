@@ -183,14 +183,14 @@ export default function ProfilePage({ isAuthenticated, setIsAuthenticated }) {
   };
 
   useEffect(() => {
-    fetch("${VITE_API_URL}/createCategory/Get", {
+    fetch(`${VITE_API_URL}/createCategory/Get`, {
   
     })
       .then(res => res.json())
       .then(data => setCategories(data))
       .catch(err => console.error(err));
 
-    fetch("${VITE_API_URL}/createArea/Get", {
+    fetch(`${VITE_API_URL}/createArea/Get`, {
     
     })
       .then(res => res.json())

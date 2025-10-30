@@ -5,6 +5,8 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
+const VITE_API_URL = import.meta.env.VITE_API_URL;
+
 import { useState, useEffect } from "react";
 const Post = ({ show, handleClose }) => {
     const [categories, setCategories] = useState([]);
@@ -19,7 +21,7 @@ const Post = ({ show, handleClose }) => {
 
     const getcategory = async () => {
         try {
-            const res = await fetch("${VITE_API_URL}/createCategory/Get")
+            const res = await fetch(`${VITE_API_URL}/createCategory/Get`)
             if (!res.ok) {
                 // toast.error("Failed to fetch categories");
             }
@@ -33,7 +35,7 @@ const Post = ({ show, handleClose }) => {
     }
     const getCityArea = async () => {
         try {
-            const res = await fetch("${VITE_API_URL}/createArea/Get")
+            const res = await fetch(`${VITE_API_URL}/createArea/Get`)
             if (!res.ok) {
                 // toast.error("Failed to fetch categories");
             }
@@ -48,7 +50,7 @@ const Post = ({ show, handleClose }) => {
 
     const onSubmit = async (formData) => {
         try {
-            let url = "${VITE_API_URL}/createAdvertisement";
+            let url = `${VITE_API_URL}/createAdvertisement`;
             let method = "POST";
             const formDataToSend = new FormData();
 

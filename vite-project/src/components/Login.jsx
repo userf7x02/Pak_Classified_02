@@ -6,6 +6,8 @@ import { useForm } from "react-hook-form";
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import ForgotPassword from './Forget_Pass';
+const VITE_API_URL = import.meta.env.VITE_API_URL;
+
 
 function Login({ show, handleClose, onSuccess }) {
   const [showPassword, setShowPassword] = useState(false);
