@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import "./CatDesign.css";
+const VITE_API_URL = import.meta.env.VITE_API_URL;
 
 export default function CatDesign() {
   const { id } = useParams();
@@ -9,7 +10,7 @@ export default function CatDesign() {
 
   async function Getdata() {
     try {
-      let res = await fetch(`https://pak-backend-7te9hzsad-hamza-maliks-projects-598e98c2.vercel.app
+      let res = await fetch(`${VITE_API_URL}
 /createAdvertisement/category/${id}`
     )
       let data = await res.json();
@@ -21,7 +22,7 @@ export default function CatDesign() {
 
   async function GetCategory() {
     try {
-      let res = await fetch(`https://pak-backend-7te9hzsad-hamza-maliks-projects-598e98c2.vercel.app
+      let res = await fetch(`${VITE_API_URL}
 /createCategory/${id}`)
       let data = await res.json();
       setCategory(data);
@@ -234,7 +235,7 @@ export default function CatDesign() {
             <article key={car._id} className="card">
               <div style={{ display: "flex", flexDirection: "row" }}>
                 <img
-                  src={`https://pak-backend-7te9hzsad-hamza-maliks-projects-598e98c2.vercel.app
+                  src={`${VITE_API_URL}
 /uploads/${car.Image}`}
                   alt={car.Name}
                 />

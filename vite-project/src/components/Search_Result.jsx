@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
+const VITE_API_URL = import.meta.env.VITE_API_URL;
 
 export default function SearchResults() {
   const [results, setResults] = useState([]);
@@ -8,7 +9,7 @@ export default function SearchResults() {
   useEffect(() => {
     const fetchResults = async () => {
       const res = await fetch(
-        `https://pak-backend-7te9hzsad-hamza-maliks-projects-598e98c2.vercel.app/createAdvertisement/search${location.search}`);
+        `${VITE_API_URL}/createAdvertisement/search${location.search}`);
       const data = await res.json();
       setResults(data);
     };
@@ -221,7 +222,7 @@ export default function SearchResults() {
             <article key={car._id} className="card">
               <div style={{ display: "flex", flexDirection: "row" }}>
                 <img
-                  src={`https://pak-backend-7te9hzsad-hamza-maliks-projects-598e98c2.vercel.app/uploads/${car.Image}`}
+                  src={`${VITE_API_URL}/uploads/${car.Image}`}
                   alt={car.Name}
                 />
 

@@ -1,6 +1,7 @@
 import React from "react";
 import "./Contact.css";
 import { toast } from "react-toastify";
+const VITE_API_URL = import.meta.env.VITE_API_URL;
 
 export default function Contact() {
   const handleSubmit = async (e) => {
@@ -14,7 +15,7 @@ export default function Contact() {
     };
 
     try {
-      const res = await fetch("https://pak-backend-7te9hzsad-hamza-maliks-projects-598e98c2.vercel.app/createContact/sendContact", {
+      const res = await fetch("${VITE_API_URL}/createContact/sendContact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 import { toast } from "react-toastify";
+const VITE_API_URL = import.meta.env.VITE_API_URL;
 
 export default function ForgotPassword({ show, handleClose }) {
     const [email, setEmail] = useState("");
@@ -10,7 +11,7 @@ export default function ForgotPassword({ show, handleClose }) {
 
     const sendOtp = async () => {
         try {
-            const res = await fetch("https://pak-backend-7te9hzsad-hamza-maliks-projects-598e98c2.vercel.app/createAuth/forgot", {
+            const res = await fetch("${VITE_API_URL}/createAuth/forgot", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
             
@@ -31,7 +32,7 @@ export default function ForgotPassword({ show, handleClose }) {
 
     const resetPassword = async () => {
         try {
-            const res = await fetch("https://pak-backend-7te9hzsad-hamza-maliks-projects-598e98c2.vercel.app/createAuth/reset", {
+            const res = await fetch("${VITE_API_URL}/createAuth/reset", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email, otp, newPassword: newPass }),

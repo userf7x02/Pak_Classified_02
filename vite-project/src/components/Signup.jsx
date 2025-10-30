@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form"
 import { Eye, EyeOff } from "lucide-react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+const VITE_API_URL = import.meta.env.VITE_API_URL;
 
 
 function Signup({ show, handleClose ,onSuccess}) {
@@ -32,7 +33,7 @@ function Signup({ show, handleClose ,onSuccess}) {
     formdata.append("image", data.image[0]);
 
     try {
-      const res = await fetch(`https://pak-backend-7te9hzsad-hamza-maliks-projects-598e98c2.vercel.app/createuser/signup`, {
+      const res = await fetch(`${VITE_API_URL}/createuser/signup`, {
         method: "POST",
         body: formdata,
       });

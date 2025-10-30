@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+const VITE_API_URL = import.meta.env.VITE_API_URL;
 
 export default function Categories() {
   const [categories, setCategories] = useState([]);
@@ -10,9 +11,9 @@ export default function Categories() {
     // ✅ async function ke andar pura logic
     async function fetchData() {
       try {
-        // Step 1: Get all categorieshttps://pak-backend-7te9hzsad-hamza-maliks-projects-598e98c2.vercel.app
+        // Step 1: Get all categories${VITE_API_URL}
 
-        const res = await fetch("https://pak-backend-7te9hzsad-hamza-maliks-projects-598e98c2.vercel.app/createCategory/Get")
+        const res = await fetch("${VITE_API_URL}/createCategory/Get")
         const data = await res.json();
         setCategories(data);
 
@@ -22,7 +23,7 @@ export default function Categories() {
           const c = data[i];
           try {
             const res2 = await fetch(
-              `https://pak-backend-7te9hzsad-hamza-maliks-projects-598e98c2.vercel.app/createAdvertisement/category/${c._id}`
+              `${VITE_API_URL}/createAdvertisement/category/${c._id}`
                
             );
             const cars = await res2.json();
