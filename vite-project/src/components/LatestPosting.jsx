@@ -7,7 +7,7 @@ export default function LatestPosting() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("https://pak-backend-r5516yojy-hamza-maliks-projects-598e98c2.vercel.app/createAdvertisement/getAll")
+    fetch("https://pak-backend-7te9hzsad-hamza-maliks-projects-598e98c2.vercel.app/createAdvertisement/getAll")
       .then((res) => {
         if (!res.ok) {
           throw new Error(`API Error: ${res.status}`);
@@ -66,7 +66,7 @@ export default function LatestPosting() {
       {posts.map((p) => (
         <article key={p._id} className="latest-card">
           <img 
-            src={`https://pak-backend-r5516yojy-hamza-maliks-projects-598e98c2.vercel.app/uploads/${p.Image}`} 
+            src={`https://pak-backend-7te9hzsad-hamza-maliks-projects-598e98c2.vercel.app/uploads/${p.Image}`} 
             alt={p.Name} 
             onError={(e) => {
               e.target.src = '/placeholder-image.jpg';

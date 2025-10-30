@@ -29,7 +29,7 @@ export default function ProfilePage({ isAuthenticated, setIsAuthenticated }) {
   const handleDeleteAd = async (adId) => {
     if (!window.confirm("Are you sure you want to delete this ad?")) return;
     try {
-      await fetch(`https://pak-backend-r5516yojy-hamza-maliks-projects-598e98c2.vercel.app/createAdvertisement/delete/${adId}`, { method: "DELETE" });
+      await fetch(`https://pak-backend-7te9hzsad-hamza-maliks-projects-598e98c2.vercel.app/createAdvertisement/delete/${adId}`, { method: "DELETE" });
       setAds((prev) => prev.filter((ad) => ad._id !== adId));
       alert("Ad Deleted Successfully!");
     } catch (err) {
@@ -79,7 +79,7 @@ export default function ProfilePage({ isAuthenticated, setIsAuthenticated }) {
       }
 
       const res = await fetch(
-        `https://pak-backend-r5516yojy-hamza-maliks-projects-598e98c2.vercel.app/createAdvertisement/update/${currentAd._id}`,
+        `https://pak-backend-7te9hzsad-hamza-maliks-projects-598e98c2.vercel.app/createAdvertisement/update/${currentAd._id}`,
         {
           method: "PUT",
           body: formData,
@@ -155,7 +155,7 @@ export default function ProfilePage({ isAuthenticated, setIsAuthenticated }) {
       if (data.image && data.image[0]) formData.append("image", data.image[0]);
 
 
-      const res = await fetch(`https://pak-backend-r5516yojy-hamza-maliks-projects-598e98c2.vercel.app/createuser/update/${user._id}`, {
+      const res = await fetch(`https://pak-backend-7te9hzsad-hamza-maliks-projects-598e98c2.vercel.app/createuser/update/${user._id}`, {
         method: "PUT",
         body: formData,
         
@@ -167,7 +167,7 @@ export default function ProfilePage({ isAuthenticated, setIsAuthenticated }) {
       setUser({
         ...updatedUser,
         image: updatedUser.image.startsWith("/uploads")
-          ? `https://pak-backend-r5516yojy-hamza-maliks-projects-598e98c2.vercel.app${updatedUser.image}`
+          ? `https://pak-backend-7te9hzsad-hamza-maliks-projects-598e98c2.vercel.app${updatedUser.image}`
           : updatedUser.image
           
       });
@@ -182,14 +182,14 @@ export default function ProfilePage({ isAuthenticated, setIsAuthenticated }) {
   };
 
   useEffect(() => {
-    fetch("https://pak-backend-r5516yojy-hamza-maliks-projects-598e98c2.vercel.app/createCategory/Get", {
+    fetch("https://pak-backend-7te9hzsad-hamza-maliks-projects-598e98c2.vercel.app/createCategory/Get", {
   
     })
       .then(res => res.json())
       .then(data => setCategories(data))
       .catch(err => console.error(err));
 
-    fetch("https://pak-backend-r5516yojy-hamza-maliks-projects-598e98c2.vercel.app/createArea/Get", {
+    fetch("https://pak-backend-7te9hzsad-hamza-maliks-projects-598e98c2.vercel.app/createArea/Get", {
     
     })
       .then(res => res.json())
@@ -208,7 +208,7 @@ export default function ProfilePage({ isAuthenticated, setIsAuthenticated }) {
        image: userData.image
   ? userData.image.startsWith("http")
     ? userData.image
-    : `https://pak-backend-r5516yojy-hamza-maliks-projects-598e98c2.vercel.app/uploads/${userData.image.replace(/^\/uploads\//, "")}`
+    : `https://pak-backend-7te9hzsad-hamza-maliks-projects-598e98c2.vercel.app/uploads/${userData.image.replace(/^\/uploads\//, "")}`
   : "https://www.attitudestatus.org/wp-content/uploads/2020/12/20-scaled.jpg",
 
       };
@@ -218,7 +218,7 @@ export default function ProfilePage({ isAuthenticated, setIsAuthenticated }) {
   }, []);
   useEffect(() => {
   if (user?._id) {
-    fetch(`https://pak-backend-r5516yojy-hamza-maliks-projects-598e98c2.vercel.app/createAdvertisement/user/${user._id}`)
+    fetch(`https://pak-backend-7te9hzsad-hamza-maliks-projects-598e98c2.vercel.app/createAdvertisement/user/${user._id}`)
       .then(res => res.json()) // 👈 ye missing tha
       .then(data => {
         console.log("✅ User ads fetched:", data);
@@ -743,7 +743,7 @@ export default function ProfilePage({ isAuthenticated, setIsAuthenticated }) {
                 <img
                   src={ad.Image?.startsWith("http")
                     ? ad.Image
-                    : `https://pak-backend-r5516yojy-hamza-maliks-projects-598e98c2.vercel.app/uploads/${ad.Image}`}
+                    : `https://pak-backend-7te9hzsad-hamza-maliks-projects-598e98c2.vercel.app/uploads/${ad.Image}`}
                   alt={ad.Name}
                   crossOrigin="use-credentials"
                 />
