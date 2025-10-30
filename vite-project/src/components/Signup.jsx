@@ -32,7 +32,7 @@ function Signup({ show, handleClose ,onSuccess}) {
     formdata.append("image", data.image[0]);
 
     try {
-      const res = await fetch(`https://pak-backend-bku89l3fn-hamza-maliks-projects-598e98c2.vercel.app/createuser/signup`, {
+      const res = await fetch(`https://pak-backend-r5516yojy-hamza-maliks-projects-598e98c2.vercel.app/createuser/signup`, {
         method: "POST",
         body: formdata,
       });

@@ -9,7 +9,7 @@ export default function CatDesign() {
 
   async function Getdata() {
     try {
-      let res = await fetch(`https://pak-backend-bku89l3fn-hamza-maliks-projects-598e98c2.vercel.app
+      let res = await fetch(`https://pak-backend-r5516yojy-hamza-maliks-projects-598e98c2.vercel.app
 /createAdvertisement/category/${id}`
     )
       let data = await res.json();
@@ -21,7 +21,7 @@ export default function CatDesign() {
 
   async function GetCategory() {
     try {
-      let res = await fetch(`https://pak-backend-bku89l3fn-hamza-maliks-projects-598e98c2.vercel.app
+      let res = await fetch(`https://pak-backend-r5516yojy-hamza-maliks-projects-598e98c2.vercel.app
 /createCategory/${id}`)
       let data = await res.json();
       setCategory(data);
@@ -234,7 +234,7 @@ export default function CatDesign() {
             <article key={car._id} className="card">
               <div style={{ display: "flex", flexDirection: "row" }}>
                 <img
-                  src={`https://pak-backend-bku89l3fn-hamza-maliks-projects-598e98c2.vercel.app
+                  src={`https://pak-backend-r5516yojy-hamza-maliks-projects-598e98c2.vercel.app
 /uploads/${car.Image}`}
                   alt={car.Name}
                 />

@@ -18,7 +18,7 @@ export default function Navbar({ isAuthenticated, setIsAuthenticated }) {
 
   const getcategory = async () => {
     try {
-      const res = await fetch("https://pak-backend-bku89l3fn-hamza-maliks-projects-598e98c2.vercel.app/createCategory/Get");
+      const res = await fetch("https://pak-backend-r5516yojy-hamza-maliks-projects-598e98c2.vercel.app/createCategory/Get");
       const data = await res.json();
       setCategories(data);
     } catch (error) {
@@ -31,7 +31,7 @@ export default function Navbar({ isAuthenticated, setIsAuthenticated }) {
       ...userData,
       image: userData?.image?.startsWith("http")
         ? userData.image
-        : `https://pak-backend-bku89l3fn-hamza-maliks-projects-598e98c2.vercel.app/uploads/${userData.image?.replace("uploads/", "")}`,
+        : `https://pak-backend-r5516yojy-hamza-maliks-projects-598e98c2.vercel.app/uploads/${userData.image?.replace("uploads/", "")}`,
     };
     setIsAuthenticated(true);
     setShowLogin(false);
