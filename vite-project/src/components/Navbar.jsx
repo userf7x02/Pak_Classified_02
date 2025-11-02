@@ -319,7 +319,7 @@ export default function Navbar({ isAuthenticated, setIsAuthenticated }) {
       <Login show={showLogin} handleClose={() => setShowLogin(false)} onSuccess={handleLoginSuccess} />
       <Post show={showPost} handleClose={() => setShowPost(false)} />
 
-      <style jsx>{`
+      <style>{`
         .dropdown-menu .dropdown-item:active,
         .dropdown-menu .dropdown-item:focus {
           background-color: #0e8a62 !important;
